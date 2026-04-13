@@ -12,6 +12,5 @@ export namespace StyleSheet {
 
   export const hairlineWidth = RNStyleSheet.hairlineWidth;
   export const flatten = RNStyleSheet.flatten;
-  export const absoluteFillObject = RNStyleSheet.absoluteFillObject;
   export const absoluteFill = RNStyleSheet.absoluteFill;
 }

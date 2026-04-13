@@ -1,4 +1,4 @@
-import type { BaseStyle } from "../types/styles";
+import type { BaseStyle } from "./types/styles";
 import { KNOWN_OBJECT_STYLE_KEYS } from "./constants/styleKeys";
 
 export function isStyleObject(value: unknown): value is BaseStyle {
