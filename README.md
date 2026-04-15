@@ -2,7 +2,7 @@
     <img src="./assets/images/logo.png" width="128">
     <h1 align="center">Fluffle</h1>
     <p><strong>Advanced StyleSheets, the Native way.</strong><br>
-    Next-level styling for React Native.</p>
+    Style React Native apps with precision and control</p>
     <p><strong>By Bibliolabs</strong></p>
 
 [![NPM Version](https://img.shields.io/npm/v/fluffle?logo=npm&logoColor=cb3837&label=Version&color=cc6699)](https://npmjs.com/package/react-native-fluffle)
