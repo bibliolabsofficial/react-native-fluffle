@@ -6,16 +6,6 @@ export namespace StyleSheet {
 
   /** An identity function for creating style sheets. */
   export function create<T extends NamedStyles<T>>(
-    // The extra & NamedStyles<any> here helps Typescript catch typos: e.g.,
-    // the following code would not error with `styles: T | NamedStyles<T>`,
-    // but would error with `styles: T & NamedStyles<any>`
-    //
-    /**
-     * ```ts
-    StyleSheet.create({
-    someComponent: { marginLeft: 1, magrinRight: 1 },
-      });```
-     */
     /**
      * The extra `& NamedStyles<any>` here helps TypeScript catch typos: e.g.,
      * the following code would not error with `styles: T | NamedStyles<T>`
