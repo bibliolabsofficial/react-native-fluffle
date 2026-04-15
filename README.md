@@ -19,10 +19,14 @@ To use Fluffle in your project, just run this command from your terminal if you'
 npm install react-native-fluffle
 ```
 
-Or use the following if you're using `yarn`:
+Or use the following if you're using `yarn` or `pnpm`:
 
 ```bash
 yarn add react-native-fluffle
+```
+
+```bash
+pnpm add react-native-fluffle
 ```
 
 Fluffle works with **both** the [React Native CLI](https://reactnative.dev/docs/getting-started-without-a-framework) and [Expo CLI](https://docs.expo.dev/more/expo-cli/), and the installation steps are the same.
