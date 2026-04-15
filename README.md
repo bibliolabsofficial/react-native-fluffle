@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="./assets/images/misc/logo.png" width="128">
+    <img src="./assets/images/logo.png" width="128">
     <h1 align="center">Fluffle</h1>
     <p><strong>By Bibliolabs</strong></p>
 
@@ -8,6 +8,7 @@
 [![Github](https://img.shields.io/badge/License-MIT-cc6699)](https://github.com/filipe-2/react-native-fluffle/blob/main/LICENSE)
 [![runs-with-expo](https://img.shields.io/badge/Runs%20with%20Expo-cc6699.svg?logo=EXPO&labelColor=fff&logoColor=000)](https://expo.dev/client)
 [![runs-with-CLI](https://img.shields.io/badge/Runs%20with%20CLI-cc6699.svg?logo=React&labelColor=555&logoColor=61dbfb)](https://reactnative.dev/docs/getting-started-without-a-framework)
+
 </div>
 
 ## Installation
