@@ -2,6 +2,7 @@
     <img src="./assets/images/misc/logo.png" width="128">
     <h1 align="center">Fluffle</h1>
     <p><strong>By Bibliolabs</strong></p>
+
 [![NPM Version](https://img.shields.io/npm/v/fluffle?logo=npm&logoColor=cb3837&label=Version&color=cc6699)](https://npmjs.com/package/react-native-fluffle)
 [![NPM Downloads](https://img.shields.io/npm/dw/native-sass?logo=npm&logoColor=cb3837&label=Downloads&color=cc6699)](https://npmjs.com/package/react-native-fluffle)
 [![Github](https://img.shields.io/badge/License-MIT-cc6699)](https://github.com/filipe-2/react-native-fluffle/blob/main/LICENSE)
