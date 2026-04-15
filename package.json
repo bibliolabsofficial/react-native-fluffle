@@ -17,6 +17,7 @@
     "react-native": ">=0.70"
   },
   "devDependencies": {
+    "prettier": "^3.8.3",
     "react": "^19.2.5",
     "react-native": "^0.85.1",
     "tsup": "^8.5.1",
