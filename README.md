@@ -113,3 +113,8 @@ It is designed to enhance the existing styling system — not replace it — kee
 
 Full documentation is available at:  
 👉 [fluffle.github.io](https://fluffle.github.io)
+
+## 🤝 Contributing
+
+Contributions, ideas, and feedback are welcome!
+Feel free to open issues or submit pull requests.
