@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
   },
 });
+``` 
 
 ## With Fluffle
 
