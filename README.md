@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+```
 
 ## With Fluffle
 
