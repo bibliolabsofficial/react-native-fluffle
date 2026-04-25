@@ -13,6 +13,45 @@
 
 </div>
 
+## 🚨 Migration Notice  
+
+**Fluffle is the official successor to NativeSass.**  
+
+- 🛑 `NativeSass` is now **deprecated**  
+- 🚀 All new development happens in **Fluffle**  
+- 🔄 If you are using NativeSass, migration is strongly recommended  
+
+Fluffle is a complete evolution of NativeSass, with improved architecture, better performance, and a clearer developer experience.
+
+---
+
+## ✨ What is Fluffle?  
+
+Fluffle is a styling library for React Native that brings **advanced styling capabilities inspired by Sass and CSS**, while fully respecting the native React Native paradigm.
+
+It allows you to write styles that are:
+
+- More expressive  
+- More maintainable  
+- More scalable  
+
+Without abandoning the **native StyleSheet approach**.
+
+---
+
+## ⚡ Why Fluffle?  
+
+React Native styling can become repetitive and hard to scale.  
+Fluffle solves that by introducing powerful abstractions:
+
+- 🧩 Nested styles (like Sass)  
+- 🔁 Reusable style patterns  
+- 🎯 Cleaner and more readable code  
+- ⚙️ Advanced shorthand properties  
+- 📱 Built specifically for React Native (not a CSS hack)  
+
+---
+
 ## Installation
 
 To use Fluffle in your project, just run this command from your terminal if you're using `npm`:
