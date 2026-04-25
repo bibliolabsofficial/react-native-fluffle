@@ -56,28 +56,50 @@ Fluffle solves that by introducing powerful abstractions:
 
 ### Without Fluffle
 
-```js
+```ts
 const styles = StyleSheet.create({
-  container: {
+  dialog: {
     padding: 16,
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
   },
+  btn: {
+    padding: 10,
+  },
+  btnActive: {
+    backgroundColor: 'blue',
+  },
+  btnInactive: {
+    backgroundColor: 'gray',
+  },
 });
-```
 
 ## With Fluffle
 
 ```js
 const styles = create({
-  container: {
+  dialog: {
     padding: 16,
+    backgroundColor: '#fff',
 
     title: {
       fontSize: 18,
       fontWeight: 'bold',
+    },
+
+    btn: {
+      padding: 10,
+
+      active: {
+        backgroundColor: 'blue',
+      },
+
+      inactive: {
+        backgroundColor: 'gray',
+      },
     },
   },
 });
