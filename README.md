@@ -52,6 +52,37 @@ Fluffle solves that by introducing powerful abstractions:
 
 ---
 
+## 🔥 Example  
+
+### Without Fluffle
+
+```js
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});
+
+## With Fluffle
+
+```js
+const styles = create({
+  container: {
+    padding: 16,
+
+    title: {
+      fontSize: 18,
+      fontWeight: 'bold',
+    },
+  },
+});
+
+```
+
 ## Installation
 
 To use Fluffle in your project, just run this command from your terminal if you're using `npm`:
