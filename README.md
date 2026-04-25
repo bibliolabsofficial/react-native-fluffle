@@ -103,3 +103,13 @@ pnpm add react-native-fluffle
 ```
 
 Fluffle works with **both** the [React Native CLI](https://reactnative.dev/docs/getting-started-without-a-framework) and [Expo CLI](https://docs.expo.dev/more/expo-cli/), and the installation steps are the same.
+
+## 🧠 Philosophy
+
+Fluffle is not a CSS layer on top of React Native.
+It is designed to enhance the existing styling system — not replace it — keeping performance, predictability, and native behavior intact.
+
+## 📚 Documentation
+
+Full documentation is available at:  
+👉 [fluffle.github.io](https://fluffle.github.io)
