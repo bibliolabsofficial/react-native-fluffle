@@ -33,22 +33,25 @@ export default defineConfig([
       '@typescript-eslint/no-unused-vars': 'warn',
       'prefer-const': 'off',
     },
-
-    /*
-      Override previous configs here for specific files if needed.
-      Avoid disable comments.
-
-      {
-        files: [],
-
-        languageOptions: {
-          globals: {
-            ...globals.node,
-          },
-        },
-
-        rules: {},
-      },
-    */
   },
+
+  {
+    files: ['./src/api/StyleSheet.ts'],
+
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+
+    rules: {
+      '@typescript-eslint/no-namespace': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
+
+  /*
+   * Override previous configs here for specific files if needed.
+   * Avoid disable comments.
+   */
 ]);
