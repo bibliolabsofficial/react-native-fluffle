@@ -4,7 +4,7 @@
     "slug": "example-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/fluffle-logo.png",
     "scheme": "exampleapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,

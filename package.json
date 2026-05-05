@@ -2,7 +2,7 @@
   "name": "@bibliolabs/react-native-fluffle",
   "version": "0.1.0",
   "description": "Advanced React Native styles, the Native way.",
-  "main": "dist/index.cjs",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -21,9 +21,9 @@
     "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.5.0",
+    "react-native": "0.81.5",
     "prettier": "^3.8.3",
     "react": "^19.2.5",
-    "react-native": "^0.85.1",
     "tsup": "^8.5.1",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.58.2"
