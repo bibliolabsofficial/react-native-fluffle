@@ -6,7 +6,7 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { StyleSheet } from '@bibliolabs/react-native-fluffle';
 
-StyleSheet.configRem.setRootFontSize(16);
+StyleSheet.configRem.setRootFontSize(30);
 
 export const unstable_settings = {
   anchor: '(tabs)',
