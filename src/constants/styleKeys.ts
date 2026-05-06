@@ -1,1 +1,1 @@
-export const KNOWN_OBJECT_STYLE_KEYS = new Set(["shadowOffset"]);
+export const KNOWN_OBJECT_STYLE_KEYS = new Set(['shadowOffset', 'textShadowOffset']);
