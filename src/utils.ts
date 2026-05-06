@@ -40,7 +40,7 @@ export function isStyleObject(value: unknown): value is BaseStyle {
   }
 
   for (const key in value as object) {
-    const v = (value as any)[key];
+    const v = (value as Record<string, unknown>)[key];
 
     if (KNOWN_OBJECT_STYLE_KEYS.has(key)) continue;
 
