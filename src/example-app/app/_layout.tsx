@@ -4,6 +4,9 @@ import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { StyleSheet } from '@bibliolabs/react-native-fluffle';
+
+StyleSheet.configRem.setRootFontSize(16);
 
 export const unstable_settings = {
   anchor: '(tabs)',
