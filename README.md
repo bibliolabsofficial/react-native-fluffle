@@ -152,7 +152,7 @@ These features are designed to enhance developer experience while staying fully 
 ## 📚 Documentation
 
 Full documentation is available at:
-👉 [fluffle.github.io](https://fluffle.github.io)
+👉 [fluffle.github.io](https://react-native-fluffle.github.io)
 
 ## 🤝 Contributing
 
