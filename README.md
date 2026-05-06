@@ -13,46 +13,46 @@
 
 </div>
 
-## 🚨 Migration Notice  
+## 🚨 Migration Notice
 
-**Fluffle is the official successor to NativeSass.**  
+**Fluffle is the official successor to NativeSass.**
 
-- 🛑 `NativeSass` is now **deprecated**  
-- 🚀 All new development happens in **Fluffle**  
-- 🔄 If you are using NativeSass, migration is strongly recommended  
+- 🛑 `NativeSass` is now **deprecated**
+- 🚀 All new development happens in **Fluffle**
+- 🔄 If you are using NativeSass, migration is strongly recommended
 
 Fluffle is a complete evolution of NativeSass, with improved architecture, better performance, and a clearer developer experience.
 
 ---
 
-## ✨ What is Fluffle?  
+## ✨ What is Fluffle?
 
 Fluffle is a styling library for React Native that brings **advanced styling capabilities inspired by Sass and CSS**, while fully respecting the native React Native paradigm.
 
 It allows you to write styles that are:
 
-- More expressive  
-- More maintainable  
-- More scalable  
+- More expressive
+- More maintainable
+- More scalable
 
 Without abandoning the **native StyleSheet approach**.
 
 ---
 
-## ⚡ Why Fluffle?  
+## ⚡ Why Fluffle?
 
-React Native styling can become repetitive and hard to scale.  
+React Native styling can become repetitive and hard to scale.
 Fluffle solves that by introducing powerful abstractions:
 
-- 🧩 Nested styles (like Sass)  
-- 🔁 Reusable style patterns  
-- 🎯 Cleaner and more readable code  
-- ⚙️ Advanced shorthand properties  
-- 📱 Built specifically for React Native (not a CSS hack)  
+- 🧩 Nested styles (like Sass)
+- 🔁 Reusable style patterns
+- 🎯 Cleaner and more readable code
+- 📏 `rem` units for scalable design
+- 📱 Built specifically for React Native (not a CSS hack)
 
 ---
 
-## 🔥 Example  
+## 🔥 Example
 
 ### Without Fluffle
 
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   title: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: 'bold',
   },
   btn: {
@@ -76,23 +76,23 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
   },
 });
-``` 
+```
 
 ## With Fluffle
 
 ```js
 const styles = create({
   dialog: {
-    padding: 16,
+    padding: 14,
     backgroundColor: '#fff',
 
     title: {
-      fontSize: 18,
+      fontSize: '1rem',
       fontWeight: 'bold',
     },
 
     btn: {
-      padding: 10,
+      padding: '0.625rem',
 
       active: {
         backgroundColor: 'blue',
@@ -104,7 +104,6 @@ const styles = create({
     },
   },
 });
-
 ```
 
 ## Installation
@@ -132,9 +131,27 @@ Fluffle works with **both** the [React Native CLI](https://reactnative.dev/docs/
 Fluffle is **not** a CSS layer on top of React Native.
 It is designed to enhance the existing styling system — not replace it — keeping performance, predictability, and native behavior intact.
 
+## 🚧 Upcoming Features
+
+Fluffle is actively evolving. Planned features include:
+
+- 🎨 Object-based shorthand syntax
+
+```ts
+ padding: { block: "1rem", inline: "2rem" }
+ margin: { top: 10, bottom: 20 }
+ gap: { row: 8, column: 4 }
+```
+
+- 🧩 Style mixins ($include)
+- 📦 Improved composition patterns
+- 🧠 Smarter style processing pipeline
+
+These features are designed to enhance developer experience while staying fully compatible with React Native.
+
 ## 📚 Documentation
 
-Full documentation is available at:  
+Full documentation is available at:
 👉 [fluffle.github.io](https://fluffle.github.io)
 
 ## 🤝 Contributing
