@@ -1,9 +1,9 @@
 <div align="center">
     <img src="./assets/images/logo.png" width="128">
-    <h1><a href="https://fluffle.github.io">Fluffle</a></h1>
+    <h1><a href="https://react-native-fluffle.github.io">Fluffle</a></h1>
     <p><strong>Advanced StyleSheets, the Native way.</strong><br>
     Style React Native apps with precision and control</p>
-    <p><strong>By Bibliolabs</strong></p>
+    <p><strong>By Bibliolab</strong></p>
 
 [![NPM Version](https://img.shields.io/npm/v/fluffle?logo=npm&logoColor=cb3837&label=Version&color=cc6699)](https://npmjs.com/package/react-native-fluffle)
 [![NPM Downloads](https://img.shields.io/npm/dw/react-native-fluffle?logo=npm&logoColor=cb3837&label=Downloads&color=cc6699)](https://npmjs.com/package/react-native-fluffle)
@@ -152,7 +152,7 @@ These features are designed to enhance developer experience while staying fully 
 ## 📚 Documentation
 
 Full documentation is available at:
-👉 [fluffle.github.io](https://react-native-fluffle.github.io)
+👉 [react-native-fluffle.github.io](https://react-native-fluffle.github.io)
 
 ## 🤝 Contributing
 
