@@ -1,5 +1,5 @@
 {
-  "name": "@bibliolabs/react-native-fluffle",
+  "name": "@bibliolab/react-native-fluffle",
   "version": "0.1.0",
   "description": "Advanced React Native styles, the Native way.",
   "main": "dist/index.js",
