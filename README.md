@@ -58,22 +58,54 @@ Fluffle solves that by introducing powerful abstractions:
 
 ```ts
 const styles = StyleSheet.create({
-  dialog: {
+  card: {
     padding: 16,
     backgroundColor: '#fff',
+    borderRadius: 12,
   },
-  title: {
+  cardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  cardAvatar: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    marginRight: 12,
+  },
+  cardName: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#111',
+  },
+  cardUsername: {
     fontSize: 14,
-    fontWeight: 'bold',
+    color: '#666',
   },
-  btn: {
-    padding: 10,
+  cardActions: {
+    flexDirection: 'row',
+    marginTop: 16,
   },
-  btnActive: {
-    backgroundColor: 'blue',
+  cardButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: 8,
+    marginRight: 8,
   },
-  btnInactive: {
-    backgroundColor: 'gray',
+  cardButtonPrimary: {
+    backgroundColor: '#2563eb',
+  },
+  cardButtonSecondary: {
+    backgroundColor: '#e5e7eb',
+  },
+  cardButtonTextPrimary: {
+    color: '#fff',
+    fontWeight: '600',
+  },
+  cardButtonTextSecondary: {
+    color: '#111',
+    fontWeight: '600',
   },
 });
 ```
@@ -82,24 +114,56 @@ const styles = StyleSheet.create({
 
 ```js
 const styles = create({
-  dialog: {
-    padding: 14,
+  card: {
+    padding: '1rem',
     backgroundColor: '#fff',
+    borderRadius: '0.75rem',
 
-    title: {
-      fontSize: '1rem',
-      fontWeight: 'bold',
-    },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: '0.75rem',
 
-    btn: {
-      padding: '0.625rem',
-
-      active: {
-        backgroundColor: 'blue',
+      avatar: {
+        width: '3rem',
+        height: '3rem',
+        borderRadius: '1.5rem',
+        marginRight: '0.75rem',
       },
 
-      inactive: {
-        backgroundColor: 'gray',
+      name: {
+        fontSize: '1.125rem',
+        fontWeight: '700',
+        color: '#111',
+      },
+
+      username: {
+        fontSize: '0.875rem',
+        color: '#666',
+      },
+    },
+
+    actions: {
+      flexDirection: 'row',
+      marginTop: '1rem',
+
+      button: {
+        paddingVertical: '0.625rem',
+        paddingHorizontal: '0.875rem',
+        borderRadius: '0.5rem',
+        marginRight: '0.5rem',
+
+        text: { fontWeight: '600' },
+
+        primary: {
+          backgroundColor: '#2563eb',
+          text: { color: '#fff' },
+        },
+
+        secondary: {
+          backgroundColor: '#e5e7eb',
+          text: { color: '#111' },
+        },
       },
     },
   },
