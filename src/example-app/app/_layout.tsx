@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import { StyleSheet } from '@bibliolabs/react-native-fluffle';
+import { StyleSheet } from '@bibliolab/react-native-fluffle';
 
 StyleSheet.configRem.setRootFontSize(30);
 

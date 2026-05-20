@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { Platform } from 'react-native';
-import { StyleSheet } from '@bibliolabs/react-native-fluffle';
+import { StyleSheet } from '@bibliolab/react-native-fluffle';
 
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
