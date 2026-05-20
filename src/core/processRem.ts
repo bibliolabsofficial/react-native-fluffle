@@ -36,16 +36,20 @@ type ResolveRemObject<T> = T extends object
  * - Nested objects are processed recursively
  * - Arrays are not processed and are returned as-is
  */
-function processObject(obj: Record<string, unknown>, path: string[] = []) {
+function processObject(obj: Record<string, unknown>, path: string[] = [], inStyleObject = false) {
   const out: Record<string, unknown> = {};
 
   for (const key in obj) {
     const value = obj[key];
-    const fullPath = [...path, key].join('.');
+    const fullPath = inStyleObject ? [...path, key].join('.') : key;
 
     // Nested object
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      out[key] = processObject(value as Record<string, unknown>, [...path, key]);
+      out[key] = processObject(
+        value as Record<string, unknown>,
+        inStyleObject ? [...path, key] : [],
+        isStyleObject(value)
+      );
       continue;
     }
 
@@ -82,7 +86,7 @@ function processObject(obj: Record<string, unknown>, path: string[] = []) {
  *
  * @remarks
  * - Only keys listed in {@link REM_KEYS} are eligible for `rem` conversion
- * - Nested objects are processed recursively
+ * - Nested style map keys are ignored when resolving property paths
  * - Arrays are currently **not processed** and are returned as-is
  *
  * @future
@@ -97,7 +101,7 @@ function processObject(obj: Record<string, unknown>, path: string[] = []) {
  */
 export function processRem<T extends NestedStyles | BaseStyle>(input: T): ResolveRemObject<T> {
   if (isStyleObject(input)) {
-    return processObject(input as Record<string, unknown>) as ResolveRemObject<T>;
+    return processObject(input as Record<string, unknown>, [], true) as ResolveRemObject<T>;
   }
 
   const out: Record<string, unknown> = {};
@@ -106,7 +110,7 @@ export function processRem<T extends NestedStyles | BaseStyle>(input: T): Resolv
     const value = input[key];
 
     if (typeof value === 'object' && value !== null) {
-      out[key] = processObject(value as NestedStyles);
+      out[key] = processObject(value as Record<string, unknown>, [], isStyleObject(value));
     } else {
       out[key] = value;
     }
