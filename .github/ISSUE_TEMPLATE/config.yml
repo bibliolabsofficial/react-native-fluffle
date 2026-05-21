@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Documentation
+    url: http://react-native-fluffle.github.io/contributing/issues/
+    about: Check the documentation before opening an issue
