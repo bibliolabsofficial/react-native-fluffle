@@ -175,17 +175,17 @@ const styles = create({
 To use Fluffle in your project, just run this command from your terminal if you're using `npm`:
 
 ```bash
-npm install react-native-fluffle
+npm install @bibliolab/react-native-fluffle
 ```
 
 Or use the following if you're using `yarn` or `pnpm`:
 
 ```bash
-yarn add react-native-fluffle
+yarn add @bibliolab/react-native-fluffle
 ```
 
 ```bash
-pnpm add react-native-fluffle
+pnpm add @bibliolab/react-native-fluffle
 ```
 
 Fluffle works with **both** the [React Native CLI](https://reactnative.dev/docs/getting-started-without-a-framework) and [Expo CLI](https://docs.expo.dev/more/expo-cli/), and the installation steps are the same.
