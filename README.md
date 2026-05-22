@@ -57,6 +57,8 @@ Fluffle solves that by introducing powerful abstractions:
 ### Without Fluffle
 
 ```ts
+import { StyleSheet } from 'react-native';
+
 const styles = StyleSheet.create({
   card: {
     padding: 16,
@@ -113,6 +115,8 @@ const styles = StyleSheet.create({
 ## With Fluffle
 
 ```js
+import { StyleSheet } from '@bibliolab/react-native-fluffle';
+
 const styles = StyleSheet.create({
   card: {
     padding: '1rem',
