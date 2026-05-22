@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
 ## With Fluffle
 
 ```js
-const styles = create({
+const styles = StyleSheet.create({
   card: {
     padding: '1rem',
     backgroundColor: '#fff',
