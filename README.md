@@ -13,6 +13,12 @@
 
 </div>
 
+## 🚀 Try It Instantly
+
+Open the live Expo Snack demo and test on an example app directly in your browser:
+
+👉 **[React Native Fluffle — Interactive Card Demo](https://snack.expo.dev/@bibliolabs_official/react-native-fluffle-card-example)**
+
 ## 🚨 Migration Notice
 
 **React Native Fluffle is the official successor to NativeSass.**
