@@ -17,7 +17,7 @@
 
 Open the live Expo Snack demo and test on an example app directly in your browser:
 
-👉 **[React Native Fluffle — Interactive Card Demo](https://snack.expo.dev/@bibliolabs_official/react-native-fluffle-card-example)**
+👉 **[React Native Fluffle — Interactive Card Demo](https://snack.expo.dev/@bibliolabs_official/react-native-fluffle---interactive-card-demo)**
 
 <p align="center">
   <img src="./assets/gifs/demo.gif" width="500" alt="Fluffle demo" />
