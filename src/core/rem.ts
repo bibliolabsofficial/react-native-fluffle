@@ -1,18 +1,55 @@
 import { PixelRatio, Platform } from 'react-native';
 
 /**
+ * Returns the computed root font size from the web document.
+ *
+ * This mirrors how CSS `rem` units behave in browsers by
+ * reading the font size from the `<html>` element.
+ *
+ * @returns The computed root font size in pixels.
+ *
+ * @remarks
+ * - Falls back to `16` when `document` is unavailable
+ *   (e.g. during SSR or non-browser environments)
+ * - Uses `window.getComputedStyle(document.documentElement)`
+ *   to match actual browser rendering behavior
+ */
+function getWebRootFontSize() {
+  if (typeof document === 'undefined') return 16;
+
+  const fontSize = window.getComputedStyle(document.documentElement).fontSize;
+  return Number.parseFloat(fontSize) || 16;
+}
+
+/**
+ * Default root font size used on native platforms.
+ *
+ * React Native does not provide a browser-like root font size,
+ * so `rem` units use a fixed baseline value instead.
+ *
+ * Current platform defaults:
+ * - iOS: 14
+ * - Android: 14
+ *
+ * @remarks
+ * This value is only used for native platforms.
+ * Web uses the computed root font size from the document instead.
+ */
+const NATIVE_BASE_FONT_SIZE = 14;
+
+/**
  * Default base font size used as the root for `rem` calculations.
  *
  * Matches platform conventions:
- * - iOS: 17
+ * - iOS: 14
  * - Android: 14
- */
-const BASE_FONT_SIZE = Platform.OS === 'ios' ? 17 : 14;
-
-/**
- * Internal root font size used for `rem` calculations.
+ * - Web: Computed from the root element's font size (default is typically 16)
+ *
  * Can be overridden via {@link setRootFontSize}.
  */
+const BASE_FONT_SIZE = Platform.OS === 'web' ? getWebRootFontSize() : NATIVE_BASE_FONT_SIZE;
+
+/** Internal root font size used for `rem` calculations. */
 let root = BASE_FONT_SIZE;
 
 /**
