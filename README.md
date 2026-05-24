@@ -13,25 +13,36 @@
 
 </div>
 
-## 🚀 Try It Instantly
+> [!TIP]
+> Try Fluffle instantly with the live Expo Snack demo — experiment with rem units, nested styles, responsive layouts, and runtime updates directly in your browser.
 
-Open the live Expo Snack demo and test on an example app directly in your browser:
+Launch the interactive Expo Snack demo and explore in a real React Native app:
 
-👉 **[React Native Fluffle — Interactive Card Demo](https://snack.expo.dev/@bibliolabs_official/react-native-fluffle---interactive-card-demo)**
+👉 **[React Native Fluffle — Interactive Playground](https://snack.expo.dev/@bibliolabs_official/react-native-fluffle---interactive-card-demo)**
 
 <p align="center">
-  <img src="./assets/gifs/demo.gif" width="500" alt="Fluffle demo" />
+  <img
+    src="./assets/gifs/demo.gif"
+    width="500"
+    alt="React Native Fluffle interactive demo"
+  />
 </p>
 
 ## 🚨 Migration Notice
 
-**React Native Fluffle is the official successor to NativeSass.**
+> [!WARNING]
+> `native-sass` has been officially deprecated in favor of `@bibliolab/react-native-fluffle`.
+> If you are using NativeSass, migration is strongly recommended.
 
-- 🛑 `native-sass` is now **deprecated**
-- 🚀 All new development happens in **Fluffle**
-- 🔄 If you are using NativeSass, migration is strongly recommended
+React Native Fluffle is the official successor to NativeSass and will receive all future updates and improvements.
 
-Fluffle is a complete evolution of NativeSass, with improved architecture, better performance, and a clearer developer experience.
+Fluffle is a complete evolution of NativeSass, with:
+
+- 🚀 Improved architecture and developer experience
+- 🎨 Better support for nested styles and rem units
+- 🌐 Proper cross-platform behavior for native and web
+- 🧩 Cleaner API and long-term maintainability
+- ⚡ Ongoing development and active support
 
 ---
 
