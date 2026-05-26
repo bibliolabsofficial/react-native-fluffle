@@ -50,7 +50,7 @@ const NATIVE_BASE_FONT_SIZE = 14;
 const BASE_FONT_SIZE = Platform.OS === 'web' ? getWebRootFontSize() : NATIVE_BASE_FONT_SIZE;
 
 /** Internal root font size used for `rem` calculations. */
-let root = BASE_FONT_SIZE;
+let rootFontSize = BASE_FONT_SIZE;
 
 /**
  * Sets the root font size used to resolve `rem` units.
@@ -59,14 +59,14 @@ let root = BASE_FONT_SIZE;
  *
  * @example
  * ```ts
- * StyleSheet.configRem.setRootFontSize(16);
+ * configureRem({ rootFontSize: 16 });
  * ```
  *
  * @remarks
  * This should be called once during app initialization (e.g. in the root layout).
  */
 export function setRootFontSize(value: number) {
-  root = value;
+  rootFontSize = value;
 }
 
 /**
@@ -89,8 +89,8 @@ export function setRootFontSize(value: number) {
  * - On native platforms, accessibility font scaling is applied automatically
  */
 export function getRemBase() {
-  if (Platform.OS === 'web') return root;
-  return root * PixelRatio.getFontScale();
+  if (Platform.OS === 'web') return rootFontSize;
+  return rootFontSize * PixelRatio.getFontScale();
 }
 
 /** Matches valid `rem` strings (e.g. "1rem", "0.5rem", "-2rem"). */

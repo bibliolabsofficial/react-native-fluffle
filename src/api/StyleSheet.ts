@@ -1,7 +1,6 @@
 import type { BaseStyle, NestedStyles } from '../types/styles';
 import { StyleSheet as RNStyleSheet } from 'react-native';
 import { processRem } from '../core/processRem';
-import { setRootFontSize } from '../core/rem';
 
 /** A lightweight styling utility built on top of React Native's `StyleSheet`. */
 export namespace StyleSheet {
@@ -51,8 +50,7 @@ export namespace StyleSheet {
    * ```
    *
    * @remarks
-   * - `rem` values are resolved using the configured root font size
-   *   (see {@link configRem.setRootFontSize})
+   * 
    * - The returned object is safe to pass directly to React Native components
    * - This is a runtime transformation (not compile-time)
    */
@@ -72,16 +70,6 @@ export namespace StyleSheet {
   ): ResolveRemObject<T> {
     return processRem(styles);
   }
-
-  /** Configuration utilities for `rem` behavior. */
-  export const configRem = {
-    /**
-     * Sets the root font size used for resolving `rem` units.
-     *
-     * @see {@link setRootFontSize}
-     */
-    setRootFontSize,
-  };
 
   export const hairlineWidth = RNStyleSheet.hairlineWidth;
   export const flatten = RNStyleSheet.flatten;
