@@ -36,18 +36,18 @@ type ResolveRemObject<T> = T extends object
  * - Nested objects are processed recursively
  * - Arrays are not processed and are returned as-is
  */
-function processObject(obj: Record<string, unknown>, path: string[] = [], inStyleObject = false) {
+function processObject(obj: Record<string, unknown>, path: string[] = [], isLeafStyle = false) {
   const out: Record<string, unknown> = {};
 
   for (const key in obj) {
     const value = obj[key];
-    const fullPath = inStyleObject ? [...path, key].join('.') : key;
+    const fullPath = isLeafStyle ? [...path, key].join('.') : key;
 
     // Nested object
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
       out[key] = processObject(
         value as Record<string, unknown>,
-        inStyleObject ? [...path, key] : [],
+        isLeafStyle ? [...path, key] : [],
         isStyleObject(value)
       );
       continue;
