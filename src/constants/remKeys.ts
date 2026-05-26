@@ -1,4 +1,4 @@
-export const REM_KEYS = new Set([
+export const REM_KEYS_ARRAY = [
   // typography
   'fontSize',
   'lineHeight',
@@ -90,6 +90,8 @@ export const REM_KEYS = new Set([
   'gap',
   'rowGap',
   'columnGap',
-] as const);
+] as const;
 
-export type RemKey = typeof REM_KEYS extends Set<infer T> ? T : never;
+export type RemKey = typeof REM_KEYS_ARRAY[number];
+
+export const REM_KEYS = new Set(REM_KEYS_ARRAY);
