@@ -72,8 +72,10 @@ export function setRootFontSize(value: number) {
 /**
  * Returns the computed base value for `1rem` in pixels.
  *
- * This includes the user’s font scaling preference via
- * {@link PixelRatio.getFontScale}.
+ * Platform behavior:
+ * - Web: returns the configured root font size directly
+ * - Native: applies the user’s font scaling preference via
+ *   {@link PixelRatio.getFontScale()}
  *
  * @returns The pixel value representing `1rem`.
  *
@@ -81,8 +83,13 @@ export function setRootFontSize(value: number) {
  * ```ts
  * const rem = getRemBase(); // e.g. 16 * fontScale
  * ```
+ *
+ * @remarks
+ * - On web, this mirrors standard CSS `rem` behavior
+ * - On native platforms, accessibility font scaling is applied automatically
  */
 export function getRemBase() {
+  if (Platform.OS === 'web') return root;
   return root * PixelRatio.getFontScale();
 }
 
