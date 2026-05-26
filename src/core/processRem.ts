@@ -43,13 +43,12 @@ function processObject(obj: Record<string, unknown>, path: string[] = [], isLeaf
     const value = obj[key];
     const fullPath = isLeafStyle ? [...path, key].join('.') : key;
 
+    const nextPath = isLeafStyle ? [...path, key] : [];
+    const childIsStyle = isStyleObject(value);
+
     // Nested object
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      out[key] = processObject(
-        value as Record<string, unknown>,
-        isLeafStyle ? [...path, key] : [],
-        isStyleObject(value)
-      );
+      out[key] = processObject(value as Record<string, unknown>, nextPath, childIsStyle);
       continue;
     }
 
