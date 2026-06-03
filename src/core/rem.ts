@@ -44,30 +44,11 @@ const NATIVE_BASE_FONT_SIZE = 14;
  * - iOS: 14
  * - Android: 14
  * - Web: Computed from the root element's font size (default is typically 16)
- *
- * Can be overridden via {@link setRootFontSize}.
  */
 const BASE_FONT_SIZE = Platform.OS === 'web' ? getWebRootFontSize() : NATIVE_BASE_FONT_SIZE;
 
 /** Internal root font size used for `rem` calculations. */
 let rootFontSize = BASE_FONT_SIZE;
-
-/**
- * Sets the root font size used to resolve `rem` units.
- *
- * @param value - The base font size in logical pixels.
- *
- * @example
- * ```ts
- * configureRem({ rootFontSize: 16 });
- * ```
- *
- * @remarks
- * This should be called once during app initialization (e.g. in the root layout).
- */
-export function setRootFontSize(value: number) {
-  rootFontSize = value;
-}
 
 /**
  * Returns the computed base value for `1rem` in pixels.
@@ -110,7 +91,6 @@ const REM_REGEX = /^(-?\d*\.?\d+)rem$/;
  * ```
  *
  * @remarks
- * - Uses the current root font size set via {@link setRootFontSize}
  * - Applies device font scaling via {@link PixelRatio.getFontScale}
  */
 export function parseRem(value: string): number | null {
