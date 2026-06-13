@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform } from 'react-native';
 
 import { Collapsible } from '@/components/ui/collapsible';
 import { ExternalLink } from '@/components/external-link';
@@ -8,6 +8,9 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Fonts } from '@/constants/theme';
+import { StyleSheet, Colors } from '@bibliolab/react-native-fluffle';
+
+const { oklch } = Colors;
 
 export default function TabTwoScreen() {
   return (
@@ -102,7 +105,7 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
+    color: oklch(0.65, 0.1233, 348.23),
     bottom: -90,
     left: -35,
     position: 'absolute',

@@ -1,12 +1,14 @@
 import { Image } from 'expo-image';
 import { Platform } from 'react-native';
-import { StyleSheet } from '@bibliolab/react-native-fluffle';
+import { StyleSheet, Colors } from '@bibliolab/react-native-fluffle';
 
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
+
+const { oklch } = Colors;
 
 export default function HomeScreen() {
   return (
@@ -23,7 +25,9 @@ export default function HomeScreen() {
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+        <ThemedText type="subtitle" style={styles.stepText}>
+          Step 1: Try it
+        </ThemedText>
         <ThemedText>
           Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
           Press{' '}
@@ -40,7 +44,9 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <Link href="/modal">
           <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+            <ThemedText type="subtitle" style={styles.stepText}>
+              Step 2: Explore
+            </ThemedText>
           </Link.Trigger>
           <Link.Preview />
           <Link.Menu>
@@ -76,7 +82,10 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   title: {
-    fontSize: '2rem',
+    color: oklch(0.65, 0.12, 350),
+  },
+  stepText: {
+    color: oklch(0.65, 0.12, 350),
   },
   stepContainer: {
     gap: 8,

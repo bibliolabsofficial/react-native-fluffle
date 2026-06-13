@@ -1,14 +1,13 @@
 import type { BaseStyle, NestedStyles } from '../types/styles';
+import type { ResolveColorObject } from '../core/processColors';
 import { StyleSheet as RNStyleSheet } from 'react-native';
-import { processRem } from '../core/processRem';
+import { processStyles } from '../core/processStyles';
+import type { ResolveRemObject } from '../core/processRem';
 
 /** A lightweight styling utility built on top of React Native's `StyleSheet`. */
 export namespace StyleSheet {
   /** Maps style keys to either a base React Native style object or nested styles. */
   type NamedStyles<T> = { [P in keyof T]: BaseStyle | NestedStyles };
-
-  /** Resolves a `rem` string type into a number. */
-  type ResolveRemValue<T> = T extends `${number}rem` ? number : T;
 
   /**
    * Recursively resolves all `rem` values within an object type.
@@ -22,9 +21,8 @@ export namespace StyleSheet {
    * { fontSize: number }
    * ```
    */
-  type ResolveRemObject<T> = T extends object
-    ? { [K in keyof T]: ResolveRemObject<T[K]> }
-    : ResolveRemValue<T>;
+
+  type ResolveStyleOutput<T> = ResolveRemObject<ResolveColorObject<T>>;
 
   /**
    * Creates a style sheet with support for `rem` units.
@@ -50,7 +48,7 @@ export namespace StyleSheet {
    * ```
    *
    * @remarks
-   * 
+   *
    * - The returned object is safe to pass directly to React Native components
    * - This is a runtime transformation (not compile-time)
    */
@@ -67,8 +65,8 @@ export namespace StyleSheet {
      * ```
      */
     styles: T & NamedStyles<any>
-  ): ResolveRemObject<T> {
-    return processRem(styles);
+  ): ResolveStyleOutput<T> {
+    return processStyles(styles);
   }
 
   export const hairlineWidth = RNStyleSheet.hairlineWidth;

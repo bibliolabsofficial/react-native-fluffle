@@ -1,5 +1,6 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import type { WithRem } from './rem';
+import type { WithOklch } from './colorStyles';
 
 /**
  * Represents a React Native style object with support for `rem` values.
@@ -10,8 +11,12 @@ import type { WithRem } from './rem';
  * @remarks
  * - Only specific properties (defined in `REM_KEYS`) accept `rem` values
  * - All `rem` values are resolved to numbers at runtime
+ * - All OKLCH color values are resolved to React Native color values at runtime
  */
-export type BaseStyle = WithRem<ViewStyle> | WithRem<TextStyle> | WithRem<ImageStyle>;
+export type BaseStyle =
+  | WithRem<WithOklch<ViewStyle>>
+  | WithRem<WithOklch<TextStyle>>
+  | WithRem<WithOklch<ImageStyle>>;
 
 /**
  * Represents a recursively nested style object.

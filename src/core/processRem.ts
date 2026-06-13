@@ -1,16 +1,20 @@
-import type { BaseStyle, NestedStyles } from '../types/styles';
 import type { RemKey } from '../constants/remKeys';
+import type { OpaqueColorValue } from 'react-native';
 import { parseRem } from './rem';
 import { REM_KEYS } from '../constants/remKeys';
 import { isStyleObject } from '../utils';
 
 /** Resolves a `rem` string type into a number. */
-type ResolveRemValue<T> = T extends `${number}rem` ? number : T;
+export type ResolveRemValue<T> = T extends `${number}rem` ? number : T;
 
 /** Recursively resolves all `rem` values within an object type. */
-type ResolveRemObject<T> = T extends object
-  ? { [K in keyof T]: ResolveRemObject<T[K]> }
-  : ResolveRemValue<T>;
+export type ResolveRemObject<T> = T extends OpaqueColorValue
+  ? OpaqueColorValue
+  : T extends readonly unknown[]
+    ? { [K in keyof T]: ResolveRemObject<T[K]> }
+    : T extends object
+      ? { [K in keyof T]: ResolveRemObject<T[K]> }
+      : ResolveRemValue<T>;
 
 /**
  * Recursively processes a style object, converting any `rem` values
@@ -98,7 +102,7 @@ function processObject(obj: Record<string, unknown>, path: string[] = [], isLeaf
  * }
  * ```
  */
-export function processRem<T extends NestedStyles | BaseStyle>(input: T): ResolveRemObject<T> {
+export function processRem<T>(input: T): ResolveRemObject<T> {
   if (isStyleObject(input)) {
     return processObject(input as Record<string, unknown>, [], true) as ResolveRemObject<T>;
   }
