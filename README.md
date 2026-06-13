@@ -39,7 +39,7 @@ React Native Fluffle is the official successor to NativeSass and will receive al
 Fluffle is a complete evolution of NativeSass, with:
 
 - 🚀 Improved architecture and developer experience
-- 🎨 Better support for nested styles and rem units
+- 🎨 Better support for nested styles, rem units and oklch color space
 - 🌐 Proper cross-platform behavior for native and web
 - 🧩 Cleaner API and long-term maintainability
 - ⚡ Ongoing development and active support
@@ -63,12 +63,13 @@ Without abandoning the **native StyleSheet approach**.
 ## ⚡ Why Fluffle?
 
 React Native styling can become repetitive and hard to scale.
-`@bibliolab/react-native-fluffle` solves that by introducing powerful abstractions:
+`@bibliolab/react-native-fluffle` solves that by introducing powerful features and abstractions:
 
 - 🧩 Nested styles (like Sass)
+- 📏 `rem` units for scalable design
+- 🎨 Colors API and OKLCH color space (modern, perceptual color design)
 - 🔁 Reusable style patterns
 - 🎯 Cleaner and more readable code
-- 📏 `rem` units for scalable design
 - 📱 Built specifically for React Native (not a CSS hack)
 
 ---
@@ -136,7 +137,9 @@ const styles = StyleSheet.create({
 ## With Fluffle
 
 ```js
-import { StyleSheet } from '@bibliolab/react-native-fluffle';
+import { StyleSheet, Colors } from '@bibliolab/react-native-fluffle';
+
+const { oklch } = Colors;
 
 const styles = StyleSheet.create({
   card: {
@@ -164,7 +167,7 @@ const styles = StyleSheet.create({
 
       username: {
         fontSize: '0.875rem',
-        color: '#666',
+        color: oklch(0.5103, 0, 0),
       },
     },
 
@@ -181,7 +184,7 @@ const styles = StyleSheet.create({
         text: { fontWeight: '600' },
 
         primary: {
-          backgroundColor: '#2563eb',
+          backgroundColor: oklch(0.5461, 0.2152, 262.88),
           text: { color: '#fff' },
         },
 
