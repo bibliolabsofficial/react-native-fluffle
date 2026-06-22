@@ -46,3 +46,114 @@ export interface OklchColor {
   /** Opacity, from `0` (fully transparent) to `1` (fully opaque). */
   alpha: number;
 }
+
+/**
+ * Represents a color in the RGB color space.
+ *
+ * Components:
+ * - `r` — Red channel (`0` to `255`)
+ * - `g` — Green channel (`0` to `255`)
+ * - `b` — Blue channel (`0` to `255`)
+ * - `alpha` — Opacity (`0` to `1`, defaults to `1`)
+ *
+ * @remarks
+ * - Values are emitted as RGB or RGBA strings depending on opacity
+ * - Both web and native platforms support this format natively
+ *
+ * @example
+ * ```ts
+ * const { rgb } = Colors;
+ * const white = rgb(255, 255, 255);
+ * const transparent = rgb(0, 0, 0, 0.5);
+ * ```
+ */
+export interface RGBColor {
+  /** Internal discriminator used for color detection and processing. */
+  readonly __type: 'rgb';
+
+  /** Red channel, from `0` to `255`. */
+  r: number;
+
+  /** Green channel, from `0` to `255`. */
+  g: number;
+
+  /** Blue channel, from `0` to `255`. */
+  b: number;
+
+  /** Opacity, from `0` (fully transparent) to `1` (fully opaque). */
+  alpha: number;
+}
+
+/**
+ * Represents a color in the HSL color space.
+ *
+ * Components:
+ * - `h` — Hue angle in degrees (`0`–`360`)
+ * - `s` — Saturation (`0` to `100`)
+ * - `l` — Lightness (`0` to `100`)
+ * - `alpha` — Opacity (`0` to `1`, defaults to `1`)
+ *
+ * @remarks
+ * - Values are emitted as HSL or HSLA strings depending on opacity
+ * - Both web and native platforms support this format natively
+ *
+ * @example
+ * ```ts
+ * const { hsl } = Colors;
+ * const red = hsl(0, 100, 50);
+ * const transparent = hsl(120, 100, 50, 0.5);
+ * ```
+ */
+export interface HSLColor {
+  /** Internal discriminator used for color detection and processing. */
+  readonly __type: 'hsl';
+
+  /** Hue angle in degrees, typically in the range `0–360`. */
+  h: number;
+
+  /** Saturation percentage, from `0` to `100`. */
+  s: number;
+
+  /** Lightness percentage, from `0` to `100`. */
+  l: number;
+
+  /** Opacity, from `0` (fully transparent) to `1` (fully opaque). */
+  alpha: number;
+}
+
+/**
+ * Represents a color in the HWB color space.
+ *
+ * Components:
+ * - `h` — Hue angle in degrees (`0`–`360`)
+ * - `w` — Whiteness (`0` to `100`)
+ * - `b` — Blackness (`0` to `100`)
+ * - `alpha` — Opacity (`0` to `1`, defaults to `1`)
+ *
+ * @remarks
+ * - Values are emitted as HWB or HWBA strings depending on opacity
+ * - Both web and native platforms support this format natively
+ *
+ * @example
+ * ```ts
+ * const { hwb } = Colors;
+ * const navyBlue = hwb(240, 0, 33);
+ * const transparent = hwb(0, 20, 20, 0.5);
+ * ```
+ */
+export interface HWBColor {
+  /** Internal discriminator used for color detection and processing. */
+  readonly __type: 'hwb';
+
+  /** Hue angle in degrees, typically in the range `0–360`. */
+  h: number;
+
+  /** Whiteness percentage, from `0` to `100`. */
+  w: number;
+
+  /** Blackness percentage, from `0` to `100`. */
+  b: number;
+
+  /** Opacity, from `0` (fully transparent) to `1` (fully opaque). */
+  alpha: number;
+}

@@ -1,4 +1,4 @@
-import type { OklchColor } from '../types/colors';
+import type { OklchColor, RGBColor, HSLColor, HWBColor } from '../types/colors';
 
 /**
  * Creates a color in the OKLCH color space.
@@ -18,7 +18,7 @@ import type { OklchColor } from '../types/colors';
  * @example
  * ```ts
  * const { oklch } = Colors;
- * 
+ *
  * const primary = oklch(0.65, 0.12, 348);
  * ```
  *
@@ -37,4 +37,94 @@ function oklch(l: number, c: number, h: number, alpha = 1): OklchColor {
   return { __type: 'oklch', l, c, h, alpha };
 }
 
-export const Colors = { oklch };
+/**
+ * Creates a color in the RGB color space.
+ *
+ * @param r - Red channel, from `0` to `255`.
+ * @param g - Green channel, from `0` to `255`.
+ * @param b - Blue channel, from `0` to `255`.
+ * @param alpha - Opacity, from `0` (fully transparent) to `1` (fully opaque).
+ * Defaults to `1`.
+ *
+ * @returns An {@link RGBColor} object that can be used in Fluffle style
+ * definitions and will be resolved automatically by the styling pipeline.
+ *
+ * @example
+ * ```ts
+ * const { rgb } = Colors;
+ *
+ * const red = rgb(255, 0, 0);
+ * const transparent = rgb(0, 0, 0, 0.5);
+ * ```
+ *
+ * @remarks
+ * - Colors are emitted as `rgb(...)` or `rgba(...)` strings depending on opacity.
+ * - Both web and native platforms support this format natively.
+ * - Values are processed automatically when passed through
+ *   {@link StyleSheet.create}.
+ */
+function rgb(r: number, g: number, b: number, alpha = 1): RGBColor {
+  return { __type: 'rgb', r, g, b, alpha };
+}
+
+/**
+ * Creates a color in the HSL color space.
+ *
+ * @param h - Hue angle in degrees, typically in the range `0–360`.
+ * @param s - Saturation percentage, from `0` to `100` (do not include the % symbol).
+ * @param l - Lightness percentage, from `0` to `100` (do not include the % symbol).
+ * @param alpha - Opacity, from `0` (fully transparent) to `1` (fully opaque).
+ * Defaults to `1`.
+ *
+ * @returns An {@link HSLColor} object that can be used in Fluffle style
+ * definitions and will be resolved automatically by the styling pipeline.
+ *
+ * @example
+ * ```ts
+ * const { hsl } = Colors;
+ *
+ * const red = hsl(0, 100, 50);
+ * const transparent = hsl(120, 100, 50, 0.5);
+ * ```
+ *
+ * @remarks
+ * - Colors are emitted as `hsl(...)` or `hsla(...)` strings depending on opacity.
+ * - Both web and native platforms support this format natively.
+ * - Values are processed automatically when passed through
+ *   {@link StyleSheet.create}.
+ */
+function hsl(h: number, s: number, l: number, alpha = 1): HSLColor {
+  return { __type: 'hsl', h, s, l, alpha };
+}
+
+/**
+ * Creates a color in the HWB color space.
+ *
+ * @param h - Hue angle in degrees, typically in the range `0–360`.
+ * @param w - Whiteness percentage, from `0` to `100` (do not include the % symbol).
+ * @param b - Blackness percentage, from `0` to `100` (do not include the % symbol).
+ * @param alpha - Opacity, from `0` (fully transparent) to `1` (fully opaque).
+ * Defaults to `1`.
+ *
+ * @returns An {@link HWBColor} object that can be used in Fluffle style
+ * definitions and will be resolved automatically by the styling pipeline.
+ *
+ * @example
+ * ```ts
+ * const { hwb } = Colors;
+ *
+ * const navyBlue = hwb(240, 0, 33);
+ * const transparent = hwb(0, 20, 20, 0.5);
+ * ```
+ *
+ * @remarks
+ * - Colors are emitted as `hwb(...)` or `hwba(...)` strings depending on opacity.
+ * - Both web and native platforms support this format natively.
+ * - Values are processed automatically when passed through
+ *   {@link StyleSheet.create}.
+ */
+function hwb(h: number, w: number, b: number, alpha = 1): HWBColor {
+  return { __type: 'hwb', h, w, b, alpha };
+}
+
+export const Colors = { oklch, rgb, hsl, hwb };

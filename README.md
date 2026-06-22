@@ -39,7 +39,7 @@ React Native Fluffle is the official successor to NativeSass and will receive al
 Fluffle is a complete evolution of NativeSass, with:
 
 - 🚀 Improved architecture and developer experience
-- 🎨 Better support for nested styles, rem units and oklch color space
+- 🎨 Better support for nested styles, rem units and modern color spaces (like OKLCH)
 - 🌐 Proper cross-platform behavior for native and web
 - 🧩 Cleaner API and long-term maintainability
 - ⚡ Ongoing development and active support
@@ -84,7 +84,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   card: {
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgb(255, 255, 255)',
     borderRadius: 12,
   },
   cardHeader: {
@@ -121,14 +121,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#2563eb',
   },
   cardButtonSecondary: {
-    backgroundColor: '#e5e7eb',
+    backgroundColor: 'hsl(220, 13%, 91%)',
   },
   cardButtonTextPrimary: {
     color: '#fff',
     fontWeight: '600',
   },
   cardButtonTextSecondary: {
-    color: '#111',
+    color: 'hwb(0 7% 93%)',
     fontWeight: '600',
   },
 });
@@ -139,12 +139,12 @@ const styles = StyleSheet.create({
 ```js
 import { StyleSheet, Colors } from '@bibliolab/react-native-fluffle';
 
-const { oklch } = Colors;
+const { rgb, oklch, hsl, hwb } = Colors;
 
 const styles = StyleSheet.create({
   card: {
     padding: '1rem',
-    backgroundColor: '#fff',
+    backgroundColor: rgb(255, 255, 255),
     borderRadius: '0.75rem',
 
     header: {
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
 
       username: {
         fontSize: '0.875rem',
-        color: oklch(0.5103, 0, 0),
+        color: oklch(0.51, 0, 0),
       },
     },
 
@@ -184,13 +184,13 @@ const styles = StyleSheet.create({
         text: { fontWeight: '600' },
 
         primary: {
-          backgroundColor: oklch(0.5461, 0.2152, 262.88),
+          backgroundColor: oklch(0.55, 0.22, 263),
           text: { color: '#fff' },
         },
 
         secondary: {
-          backgroundColor: '#e5e7eb',
-          text: { color: '#111' },
+          backgroundColor: hsl(220, 13, 91),
+          text: { color: hwb(0, 7, 93) },
         },
       },
     },

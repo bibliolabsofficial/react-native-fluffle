@@ -8,7 +8,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
 
-const { oklch } = Colors;
+const { oklch, rgb } = Colors;
 
 export default function HomeScreen() {
   return (
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     color: oklch(0.65, 0.12, 350),
   },
   stepText: {
-    color: oklch(0.65, 0.12, 350),
+    color: rgb(197, 111, 153),
   },
   stepContainer: {
     gap: 8,

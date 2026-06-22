@@ -1,4 +1,4 @@
-import type { OklchColor } from './colors';
+import type { OklchColor, RGBColor, HSLColor, HWBColor } from './colors';
 
 export type ColorKeys =
   | 'color'
@@ -18,9 +18,11 @@ export type ColorKeys =
   | 'textShadowColor'
   | 'tintColor'
   | 'overlayColor'
-  | 'outlineColor'
+  | 'outlineColor';
 
+/** Union of all supported color types. */
+export type SupportedColor = OklchColor | RGBColor | HSLColor | HWBColor;
 
 export type WithOklch<T> = {
-  [K in keyof T]: K extends ColorKeys ? T[K] | OklchColor : T[K];
+  [K in keyof T]: K extends ColorKeys ? T[K] | SupportedColor : T[K];
 };

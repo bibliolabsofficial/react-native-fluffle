@@ -1,16 +1,16 @@
 import type { ColorValue } from 'react-native';
-import type { OklchColor } from '../types/colors';
+import type { OklchColor, RGBColor, HSLColor, HWBColor } from '../types/colors';
 import type { ColorKeys } from '../types/colorStyles';
 import { formatHex, formatHex8, oklch } from 'culori';
 import { Platform } from 'react-native';
 
 /**
- * Resolves an {@link OklchColor} into a React Native-compatible
+ * Resolves any supported color type into a React Native-compatible
  * {@link ColorValue} type.
  *
  * @typeParam T - The value to resolve.
  */
-type ResolveColor<T> = T extends OklchColor ? ColorValue : T;
+type ResolveColor<T> = T extends OklchColor | RGBColor | HSLColor | HWBColor ? ColorValue : T;
 
 /**
  * Recursively resolves all custom OKLCH color objects within a type.
@@ -104,6 +104,60 @@ function serializeColor(color: OklchColor) {
 }
 
 /**
+ * Serializes an RGB color into a string representation.
+ *
+ * Returns `rgba(...)` if alpha is less than 1, otherwise `rgb(...)`.
+ *
+ * @param color - The RGB color to serialize.
+ * @returns A color string compatible with web and native platforms.
+ */
+function serializeRGBColor(color: RGBColor) {
+  const hasAlpha = (color.alpha ?? 1) < 1;
+  const alpha = color.alpha ?? 1;
+
+  if (hasAlpha) {
+    return `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
+  }
+  return `rgb(${color.r}, ${color.g}, ${color.b})`;
+}
+
+/**
+ * Serializes an HSL color into a string representation.
+ *
+ * Returns `hsla(...)` if alpha is less than 1, otherwise `hsl(...)`.
+ *
+ * @param color - The HSL color to serialize.
+ * @returns A color string compatible with web and native platforms.
+ */
+function serializeHSLColor(color: HSLColor) {
+  const hasAlpha = (color.alpha ?? 1) < 1;
+  const alpha = color.alpha ?? 1;
+
+  if (hasAlpha) {
+    return `hsla(${color.h}, ${color.s}%, ${color.l}%, ${alpha})`;
+  }
+  return `hsl(${color.h}, ${color.s}%, ${color.l}%)`;
+}
+
+/**
+ * Serializes an HWB color into a string representation.
+ *
+ * Returns `hwba(...)` if alpha is less than 1, otherwise `hwb(...)`.
+ *
+ * @param color - The HWB color to serialize.
+ * @returns A color string compatible with web and native platforms.
+ */
+function serializeHWBColor(color: HWBColor) {
+  const hasAlpha = (color.alpha ?? 1) < 1;
+  const alpha = color.alpha ?? 1;
+
+  if (hasAlpha) {
+    return `hwb(${color.h} ${color.w}% ${color.b}% / ${alpha})`;
+  }
+  return `hwb(${color.h} ${color.w}% ${color.b}%)`;
+}
+
+/**
  * Determines whether a value is an {@link OklchColor}.
  *
  * @param value - The value to test.
@@ -114,16 +168,55 @@ export function isOklchColor(value: unknown): value is OklchColor {
 }
 
 /**
- * Recursively traverses an object and converts any OKLCH color objects
+ * Determines whether a value is an {@link RGBColor}.
+ *
+ * @param value - The value to test.
+ * @returns `true` if the value is an RGB color object.
+ */
+export function isRGBColor(value: unknown): value is RGBColor {
+  return typeof value === 'object' && value !== null && (value as RGBColor).__type === 'rgb';
+}
+
+/**
+ * Determines whether a value is an {@link HSLColor}.
+ *
+ * @param value - The value to test.
+ * @returns `true` if the value is an HSL color object.
+ */
+export function isHSLColor(value: unknown): value is HSLColor {
+  return typeof value === 'object' && value !== null && (value as HSLColor).__type === 'hsl';
+}
+
+/**
+ * Determines whether a value is an {@link HWBColor}.
+ *
+ * @param value - The value to test.
+ * @returns `true` if the value is an HWB color object.
+ */
+export function isHWBColor(value: unknown): value is HWBColor {
+  return typeof value === 'object' && value !== null && (value as HWBColor).__type === 'hwb';
+}
+
+/**
+ * Recursively traverses an object and converts any color objects
  * into platform-compatible color values.
+ *
+ * Supported color types:
+ * - OKLCH (converted to hex on native, oklch(...) on web)
+ * - RGB (converted to rgb/rgba string)
+ * - HSL (converted to hsl/hsla string)
+ * - HWB (converted to hwb/hwba string)
  *
  * Arrays and nested objects are processed recursively.
  *
  * @param obj - The value to process.
- * @returns A new value with all OKLCH colors resolved.
+ * @returns A new value with all color objects resolved.
  */
 function processColorObject(obj: unknown): unknown {
   if (isOklchColor(obj)) return serializeColor(obj);
+  if (isRGBColor(obj)) return serializeRGBColor(obj);
+  if (isHSLColor(obj)) return serializeHSLColor(obj);
+  if (isHWBColor(obj)) return serializeHWBColor(obj);
   if (Array.isArray(obj)) return obj.map(processColorObject);
 
   if (typeof obj === 'object' && obj !== null) {
@@ -141,8 +234,14 @@ function processColorObject(obj: unknown): unknown {
 
 /**
  * Processes a style object (or any nested object structure),
- * converting all {@link OklchColor} values into platform-compatible
+ * converting all supported color objects into platform-compatible
  * React Native color values.
+ *
+ * Supported color types:
+ * - OKLCH (converted to hex on native, oklch(...) on web)
+ * - RGB (converted to rgb/rgba strings)
+ * - HSL (converted to hsl/hsla strings)
+ * - HWB (converted to hwb/hwba strings)
  *
  * This is the main entry point for color transformation and is used
  * internally by the styling pipeline before styles are passed to
@@ -150,18 +249,20 @@ function processColorObject(obj: unknown): unknown {
  *
  * @typeParam T - The input object type.
  * @param obj - The object to process.
- * @returns A new object with all OKLCH colors resolved.
+ * @returns A new object with all color objects resolved.
  *
  * @example
  * ```ts
  * processColors({
  *   color: oklch(0.65, 0.12, 348),
+ *   backgroundColor: rgb(255, 0, 0),
+ *   borderColor: hsl(120, 100, 50),
  * });
  * ```
  *
  * @remarks
- * - Web outputs CSS `oklch(...)` strings
- * - Native outputs hexadecimal color strings
+ * - Web and native both support rgb/rgba, hsl/hsla, and hwb/hwba directly
+ * - OKLCH is serialized to hex on native and oklch(...) on web
  * - Arrays and nested objects are processed recursively
  * - The returned type mirrors the runtime transformation via
  *   {@link ResolveColorObject}

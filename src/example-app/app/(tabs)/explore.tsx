@@ -10,7 +10,7 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Fonts } from '@/constants/theme';
 import { StyleSheet, Colors } from '@bibliolab/react-native-fluffle';
 
-const { oklch } = Colors;
+const { hsl } = Colors;
 
 export default function TabTwoScreen() {
   return (
@@ -105,7 +105,7 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: oklch(0.65, 0.1233, 348.23),
+    color: hsl(330.698, 42.574, 60.392),
     bottom: -90,
     left: -35,
     position: 'absolute',
