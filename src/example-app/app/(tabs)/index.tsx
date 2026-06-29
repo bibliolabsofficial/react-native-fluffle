@@ -88,14 +88,13 @@ const styles = StyleSheet.create({
     color: rgb(197, 111, 153),
   },
   stepContainer: {
-    gap: 8,
+    gap: { row: 8 },
     marginBottom: 8,
   },
   fluffleLogo: {
     height: 175,
     width: 175,
-    bottom: 0,
-    left: 0,
+    inset: { bottom: 0, left: 0 },
     position: 'absolute',
   },
 });

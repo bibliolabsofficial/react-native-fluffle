@@ -1,22 +1,31 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import type { WithRem } from './rem';
-import type { WithOklch } from './colorStyles';
+import type { WithColors, WithShorthands } from './colorStyles';
 
 /**
- * Represents a React Native style object with support for `rem` values.
+ * Represents a React Native style object with support for custom extensions:
+ * - `rem` values on supported properties
+ * - OKLCH and other color formats
+ * - Shorthand properties (margin, padding, borderRadius, gap, inset)
  *
  * This type extends the built-in React Native style types (`ViewStyle`,
- * `TextStyle`, and `ImageStyle`) to allow `rem` units on supported properties.
+ * `TextStyle`, and `ImageStyle`) to allow these custom value types.
  *
  * @remarks
- * - Only specific properties (defined in `REM_KEYS`) accept `rem` values
- * - All `rem` values are resolved to numbers at runtime
- * - All OKLCH color values are resolved to React Native color values at runtime
+ * - Only specific properties accept `rem` values (defined in `REM_KEYS`)
+ * - Only specific properties accept color overrides (defined in `ColorKeys`)
+ * - Only specific properties support shorthand syntax (margin, padding, inset, borderRadius, gap)
+ * - All custom values are resolved to React Native-compatible types at runtime
+ *
+ * Type composition order (important for proper type inference):
+ * 1. WithColors - enables custom color types
+ * 2. WithRem - enables rem units (must wrap shorthand values)
+ * 3. WithShorthands - enables shorthand syntax with proper rem support
  */
 export type BaseStyle =
-  | WithRem<WithOklch<ViewStyle>>
-  | WithRem<WithOklch<TextStyle>>
-  | WithRem<WithOklch<ImageStyle>>;
+  | WithShorthands<WithRem<WithColors<ViewStyle>>>
+  | WithShorthands<WithRem<WithColors<TextStyle>>>
+  | WithShorthands<WithRem<WithColors<ImageStyle>>>;
 
 /**
  * Represents a recursively nested style object.
@@ -28,7 +37,7 @@ export type BaseStyle =
  * const styles = {
  *   container: {
  *     header: {
- *       padding: "1rem",
+ *       padding: { x: "1rem", y: "2rem" },
  *     },
  *   },
  * };

@@ -1,5 +1,6 @@
 import type { BaseStyle, NestedStyles } from '../types/styles';
 import type { ResolveColorObject } from '../core/processColors';
+import type { ResolveShorthandObject } from '../types/shorthands';
 import { StyleSheet as RNStyleSheet } from 'react-native';
 import { processStyles } from '../core/processStyles';
 import type { ResolveRemObject } from '../core/processRem';
@@ -22,7 +23,12 @@ export namespace StyleSheet {
    * ```
    */
 
-  type ResolveStyleOutput<T> = ResolveRemObject<ResolveColorObject<T>>;
+  type ResolveStyleOutput<T> = ResolveRemObject<ResolveColorObject<ResolveShorthandObject<T>>>;
+
+  /**
+   * The returned object is safe to pass directly to React Native components.
+   * All custom extensions (shorthands, colors, rem units) are resolved to standard RN values.
+   */
 
   /**
    * Creates a style sheet with support for `rem` units.
