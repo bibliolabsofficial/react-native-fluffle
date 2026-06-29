@@ -1,7 +1,7 @@
 <div align="center">
     <img src="./assets/images/logo.png" width="128">
     <h1><a href="https://react-native-fluffle.github.io">Fluffle</a></h1>
-    <p><strong>Advanced StyleSheets, the Native way.</strong><br>
+    <p><strong>Beautiful StyleSheets, the Native way.</strong><br>
     Style React Native apps with precision and control</p>
     <p><strong>By Bibliolab</strong></p>
 
@@ -39,7 +39,7 @@ React Native Fluffle is the official successor to NativeSass and will receive al
 Fluffle is a complete evolution of NativeSass, with:
 
 - 🚀 Improved architecture and developer experience
-- 🎨 Better support for nested styles, rem units and modern color spaces (like OKLCH)
+- 🎨 Better support for nested styles, rem units, advanced object-based shorthand syntax, and modern color spaces (like OKLCH)
 - 🌐 Proper cross-platform behavior for native and web
 - 🧩 Cleaner API and long-term maintainability
 - ⚡ Ongoing development and active support
@@ -65,9 +65,10 @@ Without abandoning the **native StyleSheet approach**.
 React Native styling can become repetitive and hard to scale.
 `@bibliolab/react-native-fluffle` solves that by introducing powerful features and abstractions:
 
-- 🧩 Nested styles (like Sass)
+- 🧩 Nested styles
 - 📏 `rem` units for scalable design
 - 🎨 Colors API and OKLCH color space (modern, perceptual color design)
+- 🗝️ Advanced shorthand keywords in object-based syntax
 - 🔁 Reusable style patterns
 - 🎯 Cleaner and more readable code
 - 📱 Built specifically for React Native (not a CSS hack)
@@ -176,8 +177,10 @@ const styles = StyleSheet.create({
       marginTop: '1rem',
 
       button: {
-        paddingVertical: '0.625rem',
-        paddingHorizontal: '0.875rem',
+        padding: {
+          vertical: '0.625rem',
+          horizontal: '0.875rem',
+        },
         borderRadius: '0.5rem',
         marginRight: '0.5rem',
 
@@ -226,14 +229,6 @@ It is designed to enhance the existing styling system — not replace it — kee
 ## 🚧 Upcoming Features
 
 Fluffle is actively evolving. Planned features include:
-
-- 🎨 Object-based shorthand syntax
-
-```ts
- padding: { block: "1rem", inline: "2rem" }
- margin: { top: 10, bottom: 20 }
- gap: { row: 8, column: 4 }
-```
 
 - 🧩 Style mixins ($include)
 - 📦 Improved composition patterns
